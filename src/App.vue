@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useI18n, setLang } from './i18n'
+
+const { t } = useI18n()
 import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
@@ -11,7 +15,12 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+<!--  <HelloWorld msg="Vite + Vue" />-->
+  <div>
+    <p>{{ t('hello') }}</p>
+    <button @click="setLang('zh')"> {{ t('change_lang') }} 中文</button>
+    <button @click="setLang('en')"> {{ t('change_lang') }} 英文</button>
+  </div>
 </template>
 
 <style scoped>
