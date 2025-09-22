@@ -1,5 +1,5 @@
 // en.ts
-export default {
+export const en = {
     login: 'login',
     userName: 'userName',
     password: 'password'

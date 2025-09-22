@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import { useTypedI18n } from './i18n'
 
-const { t, locale } = useI18n()
+const { t, locale } = useTypedI18n()
 import HelloWorld from './components/HelloWorld.vue'
 
 </script>
@@ -17,7 +17,7 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <HelloWorld msg="Vite + Vue" />
   <h1>{{ t('login') }}</h1>
-  <p>{{ t('userName', { name: 'John' }) }}</p>
+  <p>{{ t('userName') }}</p>
   <button>{{ t('password') }}</button>
   <select v-model="locale">
     <option value="en">English</option>
