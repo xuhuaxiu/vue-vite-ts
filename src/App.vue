@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import { useTypedI18n } from './i18n'
-
+import { storeToRefs } from 'pinia'
+import { useUserStore } from './stores/user.ts'
 const { t, locale } = useTypedI18n()
+// 使用 store
+const user = useUserStore()
+// 响应式解构
+const { token, userInfo, isLogin } = storeToRefs(user)
 import HelloWorld from './components/HelloWorld.vue'
-
+function login() {
+  user.setToken('fake_token_123')
+  user.setUserInfo({ id: '1', name: '张三', email: 'zhangsan@test.com' })
+}
+function logout() {
+  user.logout()
+}
 </script>
 
 <template>
@@ -16,9 +27,11 @@ import HelloWorld from './components/HelloWorld.vue'
     </a>
   </div>
   <HelloWorld msg="Vite + Vue" />
-  <h1>{{ t('login') }}</h1>
-  <p>{{ t('userName') }}</p>
-  <button>{{ t('password') }}</button>
+  <h1>{{ t('login') }} : {{ isLogin}}</h1>
+  <p>{{ t('token') }} : {{ token}}</p>
+  <p>{{ t('userName') }} : {{ userInfo?.name}}</p>
+  <button @click="login">{{ t('login') }}</button>
+  <button @click="logout">{{ t('logout') }}</button>
   <select v-model="locale">
     <option value="en">English</option>
     <option value="zh">中文</option>
