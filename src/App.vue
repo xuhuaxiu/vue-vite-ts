@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useTypedI18n } from './i18n'
+import { useTypedI18n } from '@/i18n'
 import { storeToRefs } from 'pinia'
-import { useUserStore } from './stores/user.ts'
+import { useUserStore } from '@/stores/user'
 const { t, locale } = useTypedI18n()
 // 使用 store
 const user = useUserStore()

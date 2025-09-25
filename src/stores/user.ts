@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { UserInfo } from '../types/user.ts'
+import type { UserInfo } from '@/types/user.ts'
 export const useUserStore = defineStore('user', {
     state: () => ({
         token:  '' as string,

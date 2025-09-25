@@ -1,6 +1,6 @@
 {
   "files": [],
-  "references": [
+  "references": [// 跨项目依赖
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ]
